@@ -1,0 +1,29 @@
+
+#
+# TITLE:   Berry Development Environment
+# CREATED: 4/19/2009, Brian Larkin
+# NOTES:   
+#
+
+Things needed:
+
+1. Ruby
+2. Gems
+3. Rbot
+4. Megahal
+
+
+Things to know:
+
+1. No automated testing.
+2. Command "rbot: rescan" will cause the bot reload plugins.
+
+
+Plugin development cycle:
+
+1. Write plugin
+2. Deploy to plugins dir
+3. Rbot rescan
+4. Execute plugin.
+
+

@@ -1,0 +1,11 @@
+Package: berry
+Version: 1.0
+Section: misc
+Priority: optional
+Architecture: all
+Essential: no
+Depends: ruby-full, rubygems, rbot, megahal, mysql-client, libmysql-ruby, libmysqlclient15-dev
+Recommends: mysql-server
+Maintainer: Brian Larkin <blarkin@gmail.com>
+Description: Berry is a wrapper for rbot that extends the basic
+ functionality for jameswhite.org to use.  Berry includes functionality to perform Markov-based conversation, Posting to tumble, Tell, Shoutout, Standings, and quotes.  The system is based on rbot so that new plugins can be added easily.

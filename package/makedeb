@@ -1,0 +1,100 @@
+#!/bin/bash
+
+#
+#  TITLE:   Berry Debian package build script
+#  CREATED: 4/2/2009, Brian Larkin
+#  USAGE:   Builds out a directory structure and packages up Berry into a deb file.
+#
+
+version="1.0.0"
+rootdir="../"
+builddir="build/"
+
+#
+# Delete all old files
+#
+
+rm -rf $builddir
+
+
+#
+# Recreate directory structure
+#
+
+mkdir -p "${builddir}usr/bin" "${builddir}usr/lib" "${builddir}usr/lib/berry" "${builddir}usr/lib/berry/megahal" "${builddir}usr/share/doc/berry" "${builddir}usr/lib/plugins" "${builddir}etc/init.d" "${builddir}DEBIAN"
+
+#
+# Copy over new files
+#
+
+  # Copying Executibles
+  cp "${rootdir}berry.rb" "${builddir}usr/bin/berry"
+
+  # Copying Libraries
+  cp "${rootdir}lib/ircbot_berry.rb"     "${builddir}usr/lib/berry/ircbot_berry.rb"
+  cp "${rootdir}lib/megahal.rb"          "${builddir}usr/lib/berry/megahal.rb"
+  cp "${rootdir}lib/pirate.rb"           "${builddir}usr/lib/berry/pirate.rb"
+  cp "${rootdir}lib/megahal/megahal.ban" "${builddir}usr/lib/berry/megahal/megahal.ban"
+  cp "${rootdir}lib/megahal/megahal.dic" "${builddir}usr/lib/berry/megahal/megahal.dic"
+  cp "${rootdir}lib/megahal/megahal.trn" "${builddir}usr/lib/berry/megahal/megahal.trn"
+
+  # Copying Plugins
+  cp "${rootdir}plugins/megahal_plugin.rb" "${builddir}usr/lib/berry/plugins"
+  cp "${rootdir}plugins/post.rb"           "${builddir}usr/lib/berry/plugins"
+  cp "${rootdir}plugins/quote.rb"          "${builddir}usr/lib/berry/plugins"
+  cp "${rootdir}plugins/shoutout.rb"       "${builddir}usr/lib/berry/plugins"
+  cp "${rootdir}plugins/standings.rb"      "${builddir}usr/lib/berry/plugins"
+  cp "${rootdir}plugins/tell.rb"           "${builddir}usr/lib/berry/plugins"
+  cp "${rootdir}plugins/fortune_berry.rb"  "${builddir}usr/lib/berry/plugins"
+
+  # Copying Documentation
+  cp "${rootdir}readme.txt" "${builddir}usr/share/doc/berry/berry.txt"
+
+  # Copying deb-specific files
+  cp "deb/control"        "${builddir}control"
+  cp "deb/control"        "${builddir}DEBIAN/control"
+  cp "deb/berry.postinst" "${builddir}berry.postinst"
+  cp "deb/berry.postrm"   "${builddir}berry.postrm"
+  cp "deb/berry.prerm"    "${builddir}berry.prerm"
+  cp "deb/install.rb"     "${builddir}install.rb"
+  cp "deb/debian-binary"  "${builddir}debian-binary"
+  cp "deb/remove.sh"    "${builddir}remove.sh"
+
+  # Copy init files
+  cp "${rootdir}etc/init.d/berry"  "${builddir}etc/init.d/berry"
+
+#
+# Create tar files
+#
+
+  cd $builddir          # moving to the build dirs to create the package
+
+  # Make gzip files
+  tar -cf "control.tar" "berry.prerm" "berry.postinst" "berry.postrm" "control" "install.rb" "remove.sh" | gzip > "control.tar.gz"
+
+  rm "control"
+  rm "control.tar"
+  rm "berry.postinst"
+  rm "berry.postrm"
+  rm "berry.prerm"
+  rm "install.rb"
+  rm "remove.sh"
+
+  tar -cf "data.tar" "etc/" "usr/" 
+  rm -rf etc/
+  rm -rf usr/
+
+  cd ..		# Going back out into the main dir
+
+# 
+# Make deb
+#
+
+  dpkg-deb --build build berry_${version}-i386.deb
+
+
+#
+# Cleaning up
+# 
+
+  rm -rf build/

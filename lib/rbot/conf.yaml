@@ -1,0 +1,7 @@
+--- 
+core.address_prefix: 
+- "!"
+auth.default_level: 80
+auth.password: soggies
+irc.join_channels: 
+- "#soggies"

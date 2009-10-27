@@ -1,0 +1,8 @@
+#
+# Pre-Removal script
+# Stops any daemons
+#
+#
+
+sudo /etc/init.d/berry stop
+

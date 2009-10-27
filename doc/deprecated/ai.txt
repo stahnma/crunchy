@@ -1,0 +1,26 @@
+
+Mission:
+--------------
+The AI portion of crunchy is really just for entertainment.  I have looked at
+ a couple of different AI engines to accomplish this.
+
+Engines:
+-------------
+1. Alice
+   a. I have looked at alice using http://www.pandorabots.com to host the bot
+      and using Ramblurr (http://github.com/Ramblurr/rbot-alice/) to interact
+      with it.  The downside is that we would have a dependency on pandoranots
+      and they can be flaky at times.  You can chat with the bot I created by 
+      going to (http://pandorabots.com/pandora/talk?botid=b6b051057e374a27).  
+      I looked around trying to find a decent ruby
+      (http://aiml-programr.rubyforge.org/) or C based alice implementation,
+      but I have not found one.  Some bots are listed at
+      (http://www.alicebot.org/downloads/programs.html).
+2. Megahal
+   a. What scott originally used.  Not the greatest, but may still be the best
+      bet for us to use.
+3. Jabberwacky
+   a. Only pay versions are available.
+4. Eliza
+   a. Eliza is kind of old and boring.
+

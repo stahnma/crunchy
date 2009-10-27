@@ -1,0 +1,13 @@
+#!/bin/bash
+#
+#  Post install script
+#
+#
+
+
+#
+# Run install script for complex stuff
+#
+
+ruby install.rb
+

@@ -1,0 +1,21 @@
+
+#
+# TITLE:   Berry Documentation
+# CREATED: 4/13/2009, Brian Larkin
+# REVISED: 4/19/2009
+#
+
+What is it
+----------
+
+  Berry is a wrapper for the irc bot rbot.  It is written as a wrapped to allow for the "piratization" of the bot's speech.
+
+How to use it
+-------------
+
+  The berry package has a scripted install.  The install script creates a user to the daemon, sets up config files, and starts rbot for the first time.  Once rbot is launched for the first time, it runs through it's own config procedure.
+
+Berry sets up a init.d script and can auto-start on system start.
+
+Oh, and it's all a hack.
+

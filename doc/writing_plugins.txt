@@ -1,0 +1,24 @@
+
+# 
+#  TITLE:    How to write plugins for rbot
+#  CREATED:  4/13/2009, Brian Larkin
+#  REVISED:  4/19/2009 
+#
+
+So, you want to write a plugin?  It's easy.  
+
+Parts of a plugin
+-----------------
+A plugin should consist of a class that inherits from the "Plugin" class and a short section of rbot code that registers the plugin.  Including a help method allows the bot to answer when a user requests help on your plugin.  You can register a plugin to reply to a specific command or you can specify regex to match to.  Take a look at the berry plugins to see examples.
+
+More information
+----------------
+1. http://ruby-rbot.org/rbot-trac/wiki/RbotPlugins
+2. http://ruby-rbot.org/rbot-trac/wiki/OCsDitch
+
+Example Plugins
+---------------
+1. http://rbot.noway.ratry.ru/
+2. http://johnleach.co.uk/words/archives/2008/05/25/312/
+3. http://99c.org/archives/2007/11/04/rbot-stock-plugin/
+

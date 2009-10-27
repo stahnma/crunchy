@@ -1,0 +1,32 @@
+
+How to install and configure rbot for tumble/jwo
+
+* it would be nice to have a package for berry...
+
+1. Install Ruby
+2. Install gem
+3. Install rbot
+4. Install required gems	* NOTE: If you are running a low mem system, gem may crash.  Look into --bulk-threshold option.
+    a. dbd-mysql
+    b. dbi
+    c. deprecated
+    d. mysql
+    e. URI
+    f. Net/Http
+5. Install berry 
+    a. Put berry.rb in XXXXXXXXXXXX
+    b. Put berry_ircbot.rb in XXXXXXXXX
+5. create rbot user (berry).
+6. execute berry for the first time as that user.  Go through the setup routine.
+   a. The first time rbot is run under a given user, a wizard will run.  At this point you can set the rbot
+      password and tell it what channel to join.
+      i. You have a few options here, a password that allows you to max out your authorization with
+         the bot, the default authorization users have (used when executing rbot commands), non
+         nick-matching prefixes (set ! here), language, server, port, password, nickname, user name,
+         and the channel to join at startup.
+      ii. All of these things are stored in the .rbot directory under the users's home in the
+         conf.yaml directory.
+7. write init.d script to run 'berry -b' as rbot user upon system restart. 
+
+
+berry.rb will have to go in /usr/local/bin...put library files in /usr/lib/ruby/1.8/berry/?

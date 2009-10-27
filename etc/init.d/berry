@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# 
+# TITLE:   Init script for Berry IRC Bot
+# CREATED: 4/11/2009, Brian Larkin
+# USAGE:   Used to start/stop/restart the Berry IRC bot
+#
+
+# make sure that's the right command
+start() {
+  # get user name from /etc/default/berry
+  username=`grep "USER=" /etc/default/berry | sed "s/USER=//" `
+  echo -n "Starting the berry IRC bot"
+  echo
+  su $username -c "/usr/bin/berry -d"
+  return
+}
+
+# test the kill process
+stop() {
+  echo -n "Shutting down berry IRC bot"
+  echo
+  killall berry
+  return 0
+}
+
+case "$1" in 
+  start)
+    start
+    ;;
+  stop)
+    stop
+    ;;
+  restart)
+    stop
+    start
+    ;;
+  *)
+    echo "Usage: {start|stop|restart}"
+    exit 1
+    ;;
+esac
+
+exit $?

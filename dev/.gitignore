@@ -1,0 +1,8 @@
+#
+# TITLE:   Git ignore file
+# CREATED: Brian Larkin, 4/22/2009
+# NOTES:   Used to stop git from keeping our passwords.
+#
+
+# Ignore our environment variable files
+env_*.sh
