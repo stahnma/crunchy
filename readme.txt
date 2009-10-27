@@ -1,3 +1,4 @@
+Credit goes to Brian Larkin thus far.  (http://github.com/vanorman)
 
 These plugins are to adapt the current soggies system to rbot.  For more information on writing rbot plugins see (http://ruby-rbot.org/rbot-trac/wiki/RbotPlugins) and (http://ruby-rbot.org/rbot-trac/wiki/OCsDitch).
 
